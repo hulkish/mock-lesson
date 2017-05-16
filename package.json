@@ -1,0 +1,49 @@
+{
+  "name": "mock-lesson",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hulkish/mock-lesson.git",
+  "author": "Steven Hargrove <steven.hargrove@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.3.2",
+    "sinon": "^2.2.0"
+  },
+  "dependencies": {
+    "koa": "^2.2.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "supertest": "^3.0.0"
+  },
+  "ava": {
+    "files": [
+      "./test/**/*.test.js"
+    ],
+    "source": [
+      "./src/**/*.js"
+    ]
+  },
+  "nyc": {
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "all": true,
+    "sourceMap": true,
+    "instrument": true,
+    "check-coverage": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "scripts": {
+    "test": "nyc ava",
+    "start": "DEBUG=koa* nodemon src/index.js --verbose"
+  }
+}
